@@ -1,0 +1,12 @@
+digraph G {
+"base_link" -> "laser"[label="Broadcaster: /ROSbot2_laser\nAverage rate: 98.510 Hz\nMost recent transform: 1577095042.536 ( 0.004 sec old)\nBuffer length: 4.954 sec\n"];
+"odom" -> "base_footprint"[label="Broadcaster: /publish_odom_node_12298_1577094946635\nAverage rate: 12.696 Hz\nMost recent transform: 1577095042.481 ( 0.059 sec old)\nBuffer length: 4.884 sec\n"];
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1577095042.541"[ shape=plaintext ] ;
+ }->"base_link";
+edge [style=invis];
+ subgraph cluster_legend { style=bold; color=black; label ="view_frames Result";
+"Recorded at time: 1577095042.541"[ shape=plaintext ] ;
+ }->"odom";
+}
