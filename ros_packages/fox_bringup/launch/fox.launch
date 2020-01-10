@@ -1,0 +1,8 @@
+<launch>
+
+	<include file="$(find fox_bringup)/launch/rosserial.launch"/>
+	<include file="$(find fox_hardware)/launch/rplidar.launch"/>
+	<include file="$(find fox_hardware)/launch/fox_tf.launch"/>
+	<include file="$(find pose2odom)/launch/pose2odom.launch"/>
+
+</launch> 
