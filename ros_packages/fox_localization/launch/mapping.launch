@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+	<include file="$(find fox_localization)/launch/gmapping.launch"></include>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(find fox_localization)/rviz/rosbot.rviz" required="true" output="screen"/>
+
+</launch>
