@@ -1,8 +1,16 @@
 <launch>
 
-	<include file="$(find fox_bringup)/launch/rosserial.launch"/>
-	<include file="$(find fox_hardware)/launch/rplidar.launch"/>
-	<include file="$(find fox_hardware)/launch/fox_tf.launch"/>
-	<include file="$(find pose2odom)/launch/pose2odom.launch"/>
+    <arg name="hardware" default="false"/>
+
+    <include file="$(find fox_bringup)/launch/rosserial.launch"/>
+
+    <include file="$(find fox_ekf)/launch/message_conversion.launch"/>
+
+    <include file="$(find fox_ekf)/launch/fox_ekf.launch"/>
+
+    <include file="$(find fox_hardware)/launch/fox_tf.launch"/>
+
+    <!-- if hardware is true then also launch lidar and camera -->
+    <include if="$(arg hardware)" file="$(find fox_hardware)/launch/hardware.launch"/>
 
 </launch> 
