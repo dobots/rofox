@@ -64,19 +64,3 @@ add_dependencies(msgs_conversion ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EX
 target_link_libraries(msgs_conversion
   ${catkin_LIBRARIES}
 )
-
-add_executable(cmd_vel_ws2812b_example
-  src/cmd_vel_ws2812b_example.cpp
-)
-add_dependencies(cmd_vel_ws2812b_example ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(cmd_vel_ws2812b_example
-  ${catkin_LIBRARIES}
-)
-
-add_executable(move_base_ws2812b_example
-  src/move_base_ws2812b_example.cpp
-)
-add_dependencies(move_base_ws2812b_example ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(move_base_ws2812b_example
-  ${catkin_LIBRARIES}
-)
