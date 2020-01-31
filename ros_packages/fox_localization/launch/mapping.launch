@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
 <launch>
 
-	<include file="$(find fox_localization)/launch/gmapping.launch"></include>
+  <include file="$(find fox_localization)/launch/gmapping.launch"></include>
+
+  <!-- Show in Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fox_localization)/rviz/fox_mapping.rviz" required="true" output="screen"/>
 
 </launch>

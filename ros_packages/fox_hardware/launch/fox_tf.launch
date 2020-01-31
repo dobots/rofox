@@ -1,6 +1,13 @@
 <launch>
 <!--    <node pkg="tf2_ros" type="static_transform_publisher" name="footprint_2_base" args="0 0 0.107 0 0 0 base_footprint base_link" /> -->
+
+<!--
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_2_camera" args="0.11 0 0.11 0 0 0 base_link camera_link" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_2_imu" args="-0.20 0 0 0 0 0 base_link imu_link" />
+    <node pkg="tf2_ros" type="static_transform_publisher" name="base_2_laser" args="-0.11 0 0.16 3.1418 0 3.1418 base_link laser" />
+-->
     <node pkg="tf2_ros" type="static_transform_publisher" name="base_2_camera" args="0.11 0 0.11 0 0 0 base_link camera_link" />
     <node pkg="tf2_ros" type="static_transform_publisher" name="base_2_imu" args="-0.20 0 0 0 0 0 base_link imu_link" />
     <node pkg="tf2_ros" type="static_transform_publisher" name="base_2_laser" args="-0.11 0 0.16 3.14818 0 0 base_link laser" />
+
 </launch>
