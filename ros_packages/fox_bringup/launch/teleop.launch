@@ -1,9 +1,0 @@
-<launch>
-
-	<include file="$(find fox_bringup)/launch/rosserial.launch"/>
-
-	<node pkg="joy" type="joy_node" name="joy_node" output="screen"/>
-
-	<node pkg="teleop_twist_joy_fox" type="teleop_node" name="teleop_node" output="screen"/>
-
-</launch> 
