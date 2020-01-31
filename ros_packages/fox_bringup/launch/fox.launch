@@ -1,6 +1,7 @@
 <launch>
 
     <arg name="hardware" default="false"/>
+    <arg name="joystick" default="false"/>
 
     <include file="$(find fox_bringup)/launch/rosserial.launch"/>
 
@@ -12,5 +13,8 @@
 
     <!-- if hardware is true then also launch lidar and camera -->
     <include if="$(arg hardware)" file="$(find fox_hardware)/launch/hardware.launch"/>
+
+    <!-- if joystick is true then also launch joy and teleop_joy nodes
+    include if="$(arg joystick)" file="$(find teleop_twist_joy_fox)/launch/teleop_fox.launch"/> -->
 
 </launch> 
