@@ -11,37 +11,37 @@
 	<xacro:include filename="$(find fox_description)/urdf/laser.urdf.xacro"/>
 <!--	<xacro:include filename="$(find fox_description)/urdf/ar_tag.urdf.xacro"/> -->
  
-	<!-- Base --> 
+	<!-- Base
 	<link name="base_footprint"/>
 
 	<joint name="base_joint" type="fixed">
 		<origin xyz="0 0 0.105" rpy="0 0 0"/>
- 		<parent link="base_footprint"/>
-	   	<child link="base_link"/>
-	</joint>
+                <parent link="base_footprint"/>
+	        <child link="base_link"/>
+	</joint> -->
 
 	<link name="base_link">
-    	<visual>
-      		<origin xyz="0 0 0" rpy="0 0 0"/>
-      		<geometry>
-        		<mesh 	filename="package://fox_description/meshes/fox_cart.stl" 
+        <visual>
+                <origin xyz="0 0 0" rpy="0 0 0"/>
+                <geometry>
+                  <mesh	filename="package://fox_description/meshes/fox_cart.stl" 
 						scale="0.001 0.001 0.001"/>		      
 		</geometry>
 		<material name="dark"/>
-    	</visual>
+        </visual>
 	<collision>
-      		<origin xyz="0.225 0 0.05" rpy="0 0 0"/>
-      		<geometry>
-        		<box size="0.50 0.35 0.10"/>
-      		</geometry>
+                <origin xyz="0.225 0 0.05" rpy="0 0 0"/>
+                <geometry>
+                        <box size="0.50 0.35 0.10"/>
+                </geometry>
 	</collision>	
 	<inertial>
-      		<origin xyz="0.225 0 0" rpy="0 0 0"/>
-      		<mass value="20"/> <!-- in kg -->
+                <origin xyz="0.225 0 0" rpy="0 0 0"/>
+                <mass value="20"/> <!-- in kg -->
 			<!-- M=20kg, x=0.5m, y=0.34m, z=0.1m-->
-     		<inertia ixx="0.2093333" ixy="0.0" ixz="0.0" iyy="0.4333333" iyz="0.0" izz="0.6093333"/> 
-    	</inertial>
-  	</link>
+                <inertia ixx="0.2093333" ixy="0.0" ixz="0.0" iyy="0.4333333" iyz="0.0" izz="0.6093333"/> 
+        </inertial>
+        </link>
 
 	<!-- front_wheel macros -->
     <xacro:front_wheel alignment="left" x_="0" y_="-0.25" z_="0" rx_="0" ry_="0" rz_="0" off_="-0.12" f_="0.01" s_="1.0"  >
