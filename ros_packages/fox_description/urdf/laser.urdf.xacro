@@ -2,7 +2,7 @@
 <robot>
 
   <joint name="rplidar_joint" type="fixed">
-    <origin xyz="0.11 0 0.25" rpy="0 0 3.14"/>
+    <origin xyz="-0.11 0 0.25" rpy="0 0 3.14"/>
     <parent link="base_link"/>
     <child link="laser"/>
   </joint>
@@ -12,7 +12,7 @@
     <visual>
       <origin xyz="0 0 -0.15" rpy="0 0 0"/>
       <geometry>
-        <mesh filename="package://fox_description/meshes/lidar.stl" scale="0.001 0.001 0.001" />
+        <mesh filename="package://fox_description/meshes/lidar.dae" scale="0.001 0.001 0.001" />
       </geometry>
     </visual>
 
@@ -105,7 +105,7 @@
         <frameName>laser</frameName>
       </plugin>
     </sensor>
-    <material>Gazebo/Grey</material>
+    <!-- <material>Gazebo/Grey</material> -->
   </gazebo>
 
 
