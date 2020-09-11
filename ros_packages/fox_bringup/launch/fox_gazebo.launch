@@ -7,8 +7,8 @@
   <arg name="world_name" default="$(find fox_gazebo)/worlds/arena_2018.world"/>
   <arg name="empty_world" default="false"/>
 
-  <!-- Show in Rviz
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find rosbot_bringup)/rviz/rosbot.rviz" required="true" output="screen"/>-->
+  <!-- Show in Rviz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fox_bringup)/rviz/fox.rviz" required="true" output="screen"/>
 
   <!-- Start Gazebo   -->
   <include file="$(find fox_gazebo)/launch/gazebo.launch">
