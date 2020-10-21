@@ -3,4 +3,4 @@
         <param name="port" value="/dev/ttyS1" />
         <param name="baud" value="500000" />
     </node>
-</launch> 
+</launch>

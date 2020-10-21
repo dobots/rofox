@@ -2,4 +2,6 @@
 
 ToDo:
 
-Gazebo simulation: friction values etc are to be tuned.
+Instructions on how to launch stuff
+
+Gazebo simulation: friction values etc to be tuned.

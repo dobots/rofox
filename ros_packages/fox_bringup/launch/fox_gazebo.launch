@@ -8,7 +8,7 @@
   <arg name="empty_world" default="false"/>
 
   <!-- Show in Rviz -->
-  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fox_bringup)/rviz/fox.rviz" required="true" output="screen"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find fox_bringup)/rviz/fox.rviz" required="false" output="screen"/>
 
   <!-- Start Gazebo   -->
   <include file="$(find fox_gazebo)/launch/gazebo.launch">

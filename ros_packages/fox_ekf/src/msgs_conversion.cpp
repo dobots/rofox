@@ -35,9 +35,6 @@ void poseCallback(const geometry_msgs::PoseStamped &pose_msg)
   odom_msg.pose.covariance[21] = ODOM_ORIENTATION_COV;
   odom_msg.pose.covariance[28] = ODOM_ORIENTATION_COV;
   odom_msg.pose.covariance[35] = ODOM_ORIENTATION_COV;
-//  odom_msg.pose.covariance[21] = ODOM_COV;
-//  odom_msg.pose.covariance[28] = ODOM_COV;
-//  odom_msg.pose.covariance[35] = ODOM_COV;
 
   odom_msg.header = pose_msg.header;
 

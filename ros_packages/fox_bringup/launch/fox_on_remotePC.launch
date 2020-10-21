@@ -1,22 +1,26 @@
 <launch>
 
-    <arg name="hardware" default="false"/>
+    <!-- On robot PC -->
+    <!-- <arg name="hardware" default="false"/> -->
     <arg name="joystick" default="false"/>
     <arg name="ekf" default="true"/>
 
     <param name="robot_description" command="$(find xacro)/xacro.py '$(find fox_description)/urdf/base_fox_cart.urdf.xacro'"/>
-    <!-- if ekf is true then also launch extended kalman filter and provide it messages in the correct format -->
+    <!-- if ekf is true then also launch extended kalman filter and provide it messages in the correct format -->    
     <include if="$(arg ekf)" file="$(find fox_ekf)/launch/fox_ekf.launch"/>
     <include if="$(arg ekf)" file="$(find fox_ekf)/launch/message_conversion.launch"/>
 
+    <!-- On robot PC  -->
     <!-- launch rosserial for communication with the control board -->
-    <include file="$(find fox_bringup)/launch/rosserial.launch"/>
+    <!-- <include file="$(find fox_bringup)/launch/rosserial.launch"/> -->
+    <!-- On robot PC -->
     <!-- if hardware is true then also launch lidar and camera -->
-    <include if="$(arg hardware)" file="$(find fox_hardware)/launch/hardware.launch"/>
+    <!-- <include if="$(arg hardware)" file="$(find fox_hardware)/launch/hardware.launch"/> -->
+    <!-- On robot PC -->
     <!-- Launch tfs -->
-    <include file="$(find fox_hardware)/launch/fox_tf.launch"/>
+    <!-- <include file="$(find fox_hardware)/launch/fox_tf.launch"/> -->
 
     <!-- if joystick is true then also launch joy and teleop_joy nodes -->
     <include if="$(arg joystick)" file="$(find teleop_twist_joy_fox)/launch/teleop_fox.launch"/>
 
-</launch>
+</launch> 

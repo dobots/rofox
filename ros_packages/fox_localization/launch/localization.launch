@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-	<include file="$(find tb3_localization)/launch/map.launch"/>
-	<include file="$(find tb3_localization)/launch/amcl.launch"/>
-</launch>
