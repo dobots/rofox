@@ -10,7 +10,7 @@ project(fox_description)
 find_package(catkin REQUIRED COMPONENTS
         gazebo_msgs
         roscpp
-	    roslib
+	      roslib
         tf
         )
 
@@ -32,14 +32,14 @@ include_directories(
 )
 
 ## Declare a C++ library
-add_library(fox_cart src/broadcast_cart.cpp)
-target_link_libraries(fox_cart ${catkin_LIBRARIES})
+#add_library(fox_cart src/broadcast_cart.cpp)
+#target_link_libraries(fox_cart ${catkin_LIBRARIES})
 
 ## Declare a C++ executable
-add_executable(broadcast_cart_node src/broadcast_cart_node.cpp)
-add_dependencies(broadcast_cart_node ${catkin_EXPORTED_TARGETS})
-target_link_libraries(broadcast_cart_node fox_cart ${catkin_LIBRARIES})
-set_target_properties(broadcast_cart_node PROPERTIES OUTPUT_NAME "broadcast_cart")
+#add_executable(broadcast_cart_node src/broadcast_cart_node.cpp)
+#add_dependencies(broadcast_cart_node ${catkin_EXPORTED_TARGETS})
+#target_link_libraries(broadcast_cart_node fox_cart ${catkin_LIBRARIES})
+#set_target_properties(broadcast_cart_node PROPERTIES OUTPUT_NAME "broadcast_cart")
 
 
 
