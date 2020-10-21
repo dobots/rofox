@@ -58,7 +58,7 @@ Visualization Manager:
       Collision Enabled: false
       Enabled: true
       Links:
-        All Links Enabled: true
+        All Links Enabled: false
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
@@ -91,11 +91,20 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
         laser:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        logo_tag:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: false
         wheel_left_link:
           Alpha: 1
           Show Axes: false
