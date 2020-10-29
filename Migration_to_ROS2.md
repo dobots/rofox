@@ -78,6 +78,15 @@ There are differences in launch xml tags in ROS2 (Details about which xml tags a
 
 - The `find` command substitution is now replaced by `find-pkg-share` for the share directory and `find-pkg-prefix` for the install directory. (Note: In urdf files, `find` is still used and points to the share directory.)
 
+- To substitute an arguement (or any variable), the `var` command has to be used. For example, to use the value of world_name as world when launching gazebo:
+  ```xml
+  <arg name="world_name" default="abc.world"/>
+  ...
+  <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py">
+    <arg name="world" value="$(var world_name)"/>
+    ...
+  ```
+
 - No more global parameters. ROS2 has no concept of global parameters and thus parameters have to be passed for every node separately within the `<node>` tag.
 As an example, `robot_description` is no longer a global parameter and thus needs to be passed to the `robot_state_publisher` node:
 ```xml
@@ -96,7 +105,9 @@ To launch a simulation of your robot in Gazebo in ROS2:
 - The Gazebo environment variables (such as `GAZEBO_MODEL_PATH`) need to be set so that Gazebo can replace paths such as `package://` from the urdf. If using the gazebo_ros launch files, the best way to do this is add to the package.xml (of fox_description for Eg.):
   ```xml
   <export>
-  <gazebo_ros gazebo_model_path="${prefix}/../"/>
+    <gazebo_ros gazebo_model_path="${prefix}/../"/>
+    <gazebo_ros gazebo_plugin_path="${prefix}/lib"/>
+    <gazebo_ros gazebo_media_path="${prefix}"/>
   </export>
   ```
   More details are available at the gazebo_ros_pkgs wiki: https://github.com/ros-simulation/gazebo_ros_pkgs/wiki/ROS-2-Migration:-Gazebo-ROS-Paths
@@ -104,7 +115,7 @@ To launch a simulation of your robot in Gazebo in ROS2:
 - There are many urdf changes to Gazebo sensors in ROS2. These can be checked at the 
 gazebo_ros_pkgs wiki: (https://github.com/ros-simulation/gazebo_ros_pkgs/wiki/ROS-2-Migration:-Camera). You may also have a look at the urdf files in the ROS2 `fox_description` package as an example.
 
-### launch files
+### Launch files
 - xacro: Loading the robot description urdf files using xacro can be tricky to set up using the xml launch files. I recommend using a python launch file instead for this (especially in eloquent due to lack of `command` substitution).\
 As an example, the `fox_description` package contains a launch file `fox_robstatepub_xacro.launch.py` that builds the urdf file using xacro and passes it to the robot_state_publisher node. The model can later be spawned in gazebo using the `/robot_description` topic published by the robot_state_publisher node.
 
@@ -126,12 +137,17 @@ As an example, the `fox_description` package contains a launch file `fox_robstat
 ## Further information:
 - Guide on how to migrate code and other CMake commands: https://index.ros.org/doc/ros2/Contributing/Migration-Guide/
 
+- Creating and using your own message and service types: See `fox_ekf` package and this link: https://index.ros.org/doc/ros2/Tutorials/Single-Package-Define-And-Use-Interface/
+
 - If all this is too much work, you may also try these tools:\
  Launch file migrator: https://github.com/aws-robotics/ros2-launch-file-migrator\
  Other migration tools:
  https://github.com/awslabs/ros2-migration-tools/tree/master/porting_tools
 
 ## Troubleshooting:
+
+### Gazebo startup error
+Sometimes you may need to `source /usr/share/gazebo/setup.sh` for gazebo to startup correctly and avoid the error: `gazebo::rendering::Camera; typename boost::detail::sp_member_access<T>::type gazebo::rendering::Camera*]: Assertion `px != 0' failed.`
 
 ### Substitutions in launch.xml
 Some of the partial substitutions (Eg. $(sub)/abc/xyz.rviz) don't work well when used in `args`. An alternative is to define a separate variable and substitute that in `args` (Eg. A variable `rviz_cfg_path` is defined in `fox_gazebo/launch/gazebo.launch.xml` and then this variable is used in `args` when launching rviz at the end of the launch file).
@@ -141,3 +157,6 @@ https://github.com/ros-planning/navigation2/issues/1948
 
 ### LaserScan not visible
 In Rviz, the 'Reliability' setting for the LaserScan has to be changed to 'Best Effort' for rviz to visualize Laser Scans.
+
+### Rosserial
+At the time of writing, ROS2 does not have a `rosserial` package (to perform serial communication with a microcontroller for eg.). Work on this is ongoing and the following link provides some alternatives : https://github.com/osrf/ros2_serial_example.

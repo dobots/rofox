@@ -32,7 +32,7 @@ def callback(msg):
 		(x,y,z),
 		(quat_x, quat_y, quat_z, quat_w),
 		current_time,
-		"base_footprint",
+		"base_link",
 		"odom"
 	)
 
@@ -40,7 +40,7 @@ def callback(msg):
 	odom_msg = Odometry()
 	odom_msg.header.stamp = current_time
 	odom_msg.header.frame_id = "odom"
-	odom_msg.child_frame_id = "base_footprint"
+	odom_msg.child_frame_id = "base_link"
 	odom_msg.pose.pose = Pose(Point(x,y,z), Quaternion(quat_x, quat_y, quat_z, quat_w))
 
 	# Publish odom message
