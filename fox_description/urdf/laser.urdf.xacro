@@ -100,9 +100,17 @@
           <stddev>0.01</stddev>
         </noise>
       </ray>
-      <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_laser.so">
-        <topicName>scan</topicName>
-        <frameName>laser</frameName>
+      <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_ray_sensor.so">
+        <frame_name> laser </frame_name>
+        <!-- Change namespace and output topic so published topic is /rrbot/laser/scan -->
+        <ros>
+            <!-- <namespace>/rrbot/laser</namespace> -->
+            <argument>~/out:=scan</argument>
+        </ros>
+
+        <!-- Set output to sensor_msgs/LaserScan to get same output type as gazebo_ros_laser -->
+        <output_type>sensor_msgs/LaserScan</output_type>
+
       </plugin>
     </sensor>
     <!-- <material>Gazebo/Grey</material> -->

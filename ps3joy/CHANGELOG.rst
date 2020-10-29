@@ -2,12 +2,6 @@
 Changelog for package ps3joy
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-1.14.0 (2020-07-07)
--------------------
-* Make sure to import struct where it is used. (`#162 <https://github.com/ros-drivers/joystick_drivers/issues/162>`_)
-* roslint and Generic Clean-Up (`#161 <https://github.com/ros-drivers/joystick_drivers/issues/161>`_)
-* Contributors: Chris Lalancette, Joshua Whitley
-
 1.13.0 (2019-06-24)
 -------------------
 * Merge pull request `#128 <https://github.com/ros-drivers/joystick_drivers/issues/128>`_ from ros-drivers/fix/tab_errors

@@ -1,0 +1,8 @@
+<launch>
+
+  <include file="$(find-pkg-share astra_launch)/launch/astra.launch"></include>
+
+</launch>
+
+
+

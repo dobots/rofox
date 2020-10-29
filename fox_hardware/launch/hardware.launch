@@ -1,9 +1,0 @@
-<launch>
-
-  <include file="$(find fox_hardware)/launch/camera.launch"/>
-
-  <include file="$(find fox_hardware)/launch/lidar.launch"/>
-
-</launch>
-
-

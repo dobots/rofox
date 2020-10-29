@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- Launch ros navigation2 -->
+	<arg name="sim_time" default="true"/>
+
+	<!-- NOTE: The 'use_sim_time' and 'map' launch arguements overwrite the corresponding params file parameters -->
+	<!-- Eloquent -->
+    <include file="$(find-pkg-share nav2_bringup)/launch/nav2_navigation_launch.py">
+		<arg name="use_sim_time" value="$(var sim_time)"/>
+		<arg name="params_file" value="$(find-pkg-share fox_navigation)/param/fox_navigation.yaml"/>
+    </include>
+	<!-- Foxy -->
+    <!-- <include file="$(find-pkg-share nav2_bringup)/launch/navigation_launch.py">
+		<arg name="use_sim_time" value="$(var sim_time)"/>
+		<arg name="params_file" value="$(find-pkg-share fox_navigation)/param/fox_navigation.yaml"/>
+    </include> -->
+
+	<!-- NOTE: Use the Nav2 Tool Reset/Startup in rviz if global map not correct -->
+
+</launch>

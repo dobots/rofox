@@ -1,0 +1,30 @@
+<launch>
+
+    <!-- On robot PC -->
+    <!-- <arg name="hardware" default="false"/> -->
+    <arg name="joystick" default="false"/>
+    <arg name="ekf" default="true"/>
+
+    <!-- robot state publisher -->
+    <include file="$(find-pkg-share fox_description)/launch/fox_robstatepub_xacro.launch.py">
+        <arg name="use_sim_time" value="false"/>
+    </include>
+
+    <!-- if ekf is true then also launch extended kalman filter and provide it messages in the correct format -->    
+    <include if="$(var ekf)" file="$(find-pkg-share fox_ekf)/launch/fox_ekf.launch.xml"/>
+    <include if="$(var ekf)" file="$(find-pkg-share fox_ekf)/launch/message_conversion.launch.xml"/>
+
+    <!-- On robot PC  -->
+    <!-- launch rosserial for communication with the control board -->
+    <!-- <include file="$(find-pkg-share fox_bringup)/launch/rosserial.launch"/> -->
+    <!-- On robot PC -->
+    <!-- if hardware is true then also launch lidar and camera -->
+    <!-- <include if="$(var hardware)" file="$(find-pkg-share fox_hardware)/launch/hardware.launch.xml"/> -->
+    <!-- On robot PC -->
+    <!-- Launch tfs -->
+    <!-- <include file="$(find-pkg-share fox_hardware)/launch/fox_tf.launch.xml"/> -->
+
+    <!-- if joystick is true then also launch joy and teleop_joy nodes -->
+    <include if="$(var joystick)" file="$(find-pkg-share teleop_twist_joy_fox)/launch/teleop_fox.launch"/>
+
+</launch> 

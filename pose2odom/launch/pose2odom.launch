@@ -1,6 +1,0 @@
-<launch>
-
-	<node pkg="pose2odom" type="pose2odom.py" name="pose2odom" output="screen" />
-
-</launch>
-

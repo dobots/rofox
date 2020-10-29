@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+
+<launch>
+
+	<!-- Launch amcl and map server (using ros navigation2) -->
+	<arg name="map_path" default="$(find-pkg-share fox_localization)/map/arena.yaml" />
+	<arg name="sim_time" default="true"/>
+	    
+	<arg name="rviz" default="false"/>
+    <arg name="rviz_cfg_path" default="$(find-pkg-share fox_localization)/rviz/fox_amcl.rviz"/>
+
+	<!-- NOTE: The 'use_sim_time' and 'map' launch arguements overwrite the corresponding params file parameters -->	
+	<!-- Eloquent -->
+    <include file="$(find-pkg-share nav2_bringup)/launch/nav2_localization_launch.py">
+		<arg name="use_sim_time" value="$(var sim_time)"/>
+		<arg name="map" value="$(var map_path)"/>
+		<arg name="params_file" value="$(find-pkg-share fox_localization)/param/fox_amcl.yaml"/>
+    </include>
+	<!-- Foxy -->
+    <!-- <include file="$(find-pkg-share nav2_bringup)/launch/localization_launch.py">
+		<arg name="use_sim_time" value="$(var sim_time)"/>
+		<arg name="map" value="$(var map_path)"/>
+		<arg name="params_file" value="$(find-pkg-share fox_localization)/param/fox_amcl.yaml"/>
+    </include> -->
+		
+	<!-- Rviz (Optional) -->
+    <node if="$(var rviz)" name="rviz2_fox_amcl" pkg="rviz2" exec="rviz2" args="-d $(var rviz_cfg_path)" required="false" output="screen" >
+        <param name="use_sim_time" value="$(var sim_time)"/>
+    </node>
+	<!-- NOTE: Use the Nav2 Tool Reset/Startup in rviz if no map seen -->
+
+</launch>

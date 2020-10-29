@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find-pkg-share fox_hardware)/launch/camera.launch.xml"/>
+
+  <include file="$(find-pkg-share fox_hardware)/launch/lidar.launch.xml"/>
+
+</launch>

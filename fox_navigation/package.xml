@@ -1,18 +1,20 @@
 <?xml version="1.0"?>
-<package format="2">
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
   <name>fox_navigation</name>
   <version>0.0.0</version>
   <description>The fox_navigation package</description>
+  <maintainer email="snehal.jauhri@gmail.com">sjauhri</maintainer>
+  <license>TODO: License declaration</license>
 
-  <maintainer email="support@husarion.com">Husarion</maintainer>
+  <buildtool_depend>ament_cmake</buildtool_depend>
 
-  <license>MIT</license>
+  <depend>nav2_bringup</depend>
 
-  <buildtool_depend>catkin</buildtool_depend>
-  <depend>amcl</depend>
-  <depend>move_base</depend>
-  <depend>map_server</depend>
-  <depend>gmapping</depend>
-  <depend>teleop_twist_keyboard</depend>
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
 
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>
