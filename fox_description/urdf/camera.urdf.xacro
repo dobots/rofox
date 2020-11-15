@@ -83,12 +83,12 @@
         <update_rate> 10.0 </update_rate>
         <camera_name> camera </camera_name>
         <frame_name> camera_depth_frame </frame_name>
-        <!-- Change namespace, camera name and topics so:
-              * Raw images are published to: /custom_ns/custom_camera/custom_image
-              * Depth images are published to: /custom_ns/custom_camera/custom_image_depth
-              * Raw image camera info is published to: /custom_ns/custom_camera/custom_info_raw
-              * Depth image camera info is published to: /custom_ns/custom_camera/custom_info_depth
-              * Point cloud is published to: /custom_ns/custom_camera/custom_points 
+        <!-- Change namespace, camera name and topics so
+              * Raw images are published to /custom_ns/custom_camera/custom_image
+              * Depth images are published to /custom_ns/custom_camera/custom_image_depth
+              * Raw image camera info is published to /custom_ns/custom_camera/custom_info_raw
+              * Depth image camera info is published to /custom_ns/custom_camera/custom_info_depth
+              * Point cloud is published to /custom_ns/custom_camera/custom_points 
         -->
         <ros>
           <!-- <namespace>custom_ns</namespace> -->

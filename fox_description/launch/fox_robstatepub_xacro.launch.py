@@ -46,25 +46,17 @@ def generate_launch_description():
     # Simulation (Gazebo) time
     use_sim_time = launch.substitutions.LaunchConfiguration('use_sim_time', default='false')
 
-    # Get urdf using xacro
+    # Urdf using xacro command substitution
     pkg_share = FindPackageShare('fox_description').find('fox_description')
     urdf_dir = os.path.join(pkg_share, 'urdf')
     urdf_path = os.path.join(urdf_dir, 'base_fox_cart.urdf')
-
-    # If urdf isn't already built, build it here using xacro
     xacro_path = urdf_path + '.xacro'
-    doc = xacro.process_file(xacro_path)
-    robot_desc = doc.toprettyxml(indent='  ')
-    f = open(urdf_path, "w")
-    f.write(robot_desc)
-    f.close()
-    
+    robot_desc = launch.substitutions.Command('xacro %s' % xacro_path)
+  
     # Launch robot_state_publisher with urdf as robot description param
-    # params = {'robot_description': robot_desc, 
-    #           'publish_frequency': 30.0,
-    #           'use_sim_time': use_sim_time}
-    params = {  'publish_frequency': 30.0,
-                'use_sim_time': use_sim_time}
+    params = {'robot_description': robot_desc,
+              'publish_frequency': 30.0,
+              'use_sim_time': use_sim_time}
 
     return launch.LaunchDescription([
         launch.actions.DeclareLaunchArgument(
@@ -72,8 +64,7 @@ def generate_launch_description():
                                 default_value='false',
                                 description='Use simulation (Gazebo) clock if true'),
         launch_ros.actions.Node(package='robot_state_publisher',
-                                node_executable='robot_state_publisher',
-                                output='screen',
-                                arguments=[urdf_path],
+                                executable='robot_state_publisher',
+                                output='screen',                                
                                 parameters=[params])
     ])

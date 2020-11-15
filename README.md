@@ -1,7 +1,7 @@
 # rofox packages
 
 This repository contains the ROS packages for the RoFox robot by DoBots.
-You may choose the branch as per your ROS distribution (This is the **ros2-eloquent** branch).
+You may choose the branch as per your ROS distribution (This is the **ros2-foxy** branch).
 
 The **Migration_to_ROS2.md** file contains information on how to port your packages from ROS1 to ROS2.
 
@@ -100,6 +100,8 @@ ros2 launch fox_navigation navigation2.launch.xml
 - Clone rplidar_ros (https://github.com/allenh1/rplidar_ros) to launch the rplidar hardware.
 
 ### ToDo:
+
+- fix world sdfs 'house' and 'maze' (Currently cause crashes)
 
 - rosserial.launch.xml needs to be ported to ROS2. (Possibilities could be: https://github.com/husarion/rosbot-firmware-ros2 or https://github.com/osrf/ros2_serial_example)
 
