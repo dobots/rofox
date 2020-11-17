@@ -84,8 +84,7 @@
 	</xacro:caster>
 		
 	<!-- ar_tag macros -->
-    <xacro:ar_tag number_="5" x_="-0.3" y_="0.0" z_="0.35" r_="1.0" >
-	</xacro:ar_tag>
+    <xacro:ar_tag number_="5" x_="-0.3" y_="0.0" z_="0.35" r_="1.0" />
 	
 	<!-- Gazebo simulation plugins -->
 	<xacro:include filename="$(find fox_description)/urdf/base_fox_cart.gazebo.xacro"/>

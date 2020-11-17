@@ -13,14 +13,14 @@
 	<xacro:include filename="$(find fox_description)/urdf/logo.urdf.xacro"/>
 	<!-- <xacro:include filename="$(find fox_description)/urdf/ar_tag.urdf.xacro"/> -->
  
-	<!-- Base
-	<link name="base_footprint"/>
+	<!-- Base -->
+	<!-- <link name="base_footprint"/> -->
 
-	<joint name="base_joint" type="fixed">
-		<origin xyz="0 0 0.105" rpy="0 0 0"/>
-                <parent link="base_footprint"/>
-	        <child link="base_link"/>
-	</joint> -->
+	<!-- <joint name="base_joint" type="fixed"> -->
+		<!-- <origin xyz="0 0 0.105" rpy="0 0 0"/> -->
+                <!-- <parent link="base_footprint"/> -->
+	        <!-- <child link="base_link"/> -->
+	<!-- </joint> -->
 
 	<link name="base_link">
         <visual>
@@ -64,8 +64,7 @@
 	</xacro:logo_tag>
 
 	<!-- ar_tag macros -->
-	<!-- <xacro:ar_tag number_="5" x_="0.0" y_="0.0" z_="0.15" r_="0.0">
-	</xacro:ar_tag> -->
+	<!-- <xacro:ar_tag number_="5" x_="0.0" y_="0.0" z_="0.15" r_="0.0"/>-->
 	
 	<!-- Gazebo simulation plugins -->
 	<xacro:include filename="$(find fox_description)/urdf/base_fox_cart.gazebo.xacro"/>
