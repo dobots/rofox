@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Also launch physical robot from robotPC with sensors disabled (hardware:=false) -->
+  
+  <!-- Arguments -->
+  <!-- If changing init_pose, it also needs to be done on the physical robot side -->
+  <arg name="init_pose" default="-x 0.0 -y 0.0 -z 0.2 -R 0.0 -P 0.0 -Y 0.0"/>
+  <arg name="world_name" default="$(find fox_gazebo)/worlds/house.world"/>
+  <arg name="empty_world" default="false"/>
+  <arg name="rviz" default="false"/>
+
+  <!-- Show in Rviz -->
+  <node if="$(arg rviz)" name="rviz" pkg="rviz" type="rviz" args="-d $(find fox_bringup)/rviz/fox.rviz" required="false" output="screen"/>
+
+  <!-- Start Gazebo -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg unless="$(arg empty_world)" name="world_name" value="$(arg world_name)"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="false"/> <!-- Don't use sim time -->
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- Spawn fox_bot -->
+  <!-- URDF file without gazebo differential drive controller -->
+  <node pkg="gazebo_ros" type="spawn_model" name="spawn_fox" args="-urdf -file $(find fox_hil_sim)/urdf/hil_base_fox_cart.urdf -model fox_cart $(arg init_pose)"/>
+
+  <!-- Start gazebo_model_update script -->
+  <node pkg="fox_hil_sim" name="gazebo_model_update" type="gazebo_model_update.py" output="screen"/> 
+
+</launch>
