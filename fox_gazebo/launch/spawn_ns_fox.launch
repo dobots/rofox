@@ -5,8 +5,8 @@
 
   <!-- Namespace (mandatory) Eg. robot_0 (no leading or trailing '/' !) -->
   <arg name="namespace"/>
-  <!-- Robot name and initial pose -->
-  <arg name="robot_name" default="fox_cart_0"/>
+  <!-- Robot name (mandatory) and initial pose -->
+  <arg name="robot_name"/>
   <arg name="x" default="0.0"/>
   <arg name="y" default="0.0"/>
   <arg name="z" default="0.2"/>
