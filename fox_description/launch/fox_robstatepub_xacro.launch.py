@@ -40,7 +40,7 @@ import launch_ros.actions
 from launch_ros.substitutions import FindPackageShare
 
 import xacro
-
+import xml.etree.ElementTree as ET
 
 def generate_launch_description():
     # Simulation (Gazebo) time
@@ -50,13 +50,33 @@ def generate_launch_description():
     pkg_share = FindPackageShare('fox_description').find('fox_description')
     urdf_dir = os.path.join(pkg_share, 'urdf')
     urdf_path = os.path.join(urdf_dir, 'base_fox_cart.urdf')
+    # If urdf isn't already built, build it here using xacro
     xacro_path = urdf_path + '.xacro'
-    robot_desc = launch.substitutions.Command('xacro %s' % xacro_path)
+    doc = xacro.process_file(xacro_path)
+    robot_desc = doc.toprettyxml(indent='  ')
+
+    # Optional: remap tfs of gazebo plugins
+    # TODO: Find best way to pass arguement to python launch file from xml launch file.
+    # tf_remapping = launch.substitutions.LaunchConfiguration('tf_remapping', default='/tf:=tf')
+    # f = open(urdf_path, "w")
+    # f.write(robot_desc)
+    # f.close()
+    # xml_tree = ET.parse(urdf_path)
+    # xml_root = xml_tree.getroot()
+    # for plugin in xml_root.iter('plugin'):
+    #     if 'base_fox_controller' in plugin.attrib.values():
+    #         # The only plugin we care for now is 'diff_drive' which is
+    #         # broadcasting a transform between`odom` and `base_footprint`
+    #         break
+    # xml_tf_remap = ET.SubElement(plugin.find('ros'), 'remapping')
+    # xml_tf_remap.text = tf_remapping
+    # robot_desc = ET.tostring(xml_root, encoding='unicode')
   
     # Launch robot_state_publisher with urdf as robot description param
     params = {'robot_description': robot_desc,
               'publish_frequency': 30.0,
-              'use_sim_time': use_sim_time}
+              'use_sim_time': use_sim_time,
+              'use_tf_static': False}
 
     return launch.LaunchDescription([
         launch.actions.DeclareLaunchArgument(
@@ -65,6 +85,7 @@ def generate_launch_description():
                                 description='Use simulation (Gazebo) clock if true'),
         launch_ros.actions.Node(package='robot_state_publisher',
                                 executable='robot_state_publisher',
+                                remappings=[("/tf", "tf"), ('/tf_static', 'tf_static')], # Tf relative namespace for remapping
                                 output='screen',                                
                                 parameters=[params])
     ])

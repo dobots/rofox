@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<launch>
+<!-- Spawn a namespaced rofox robot -->
+
+  <!-- Namespace (mandatory) Eg. robot_0 (no leading or trailing '/' !) -->
+  <arg name="namespace"/>
+  <!-- Robot name (mandatory) and initial pose -->
+  <arg name="robot_name"/>
+  <arg name="x" default="0.0"/>
+  <arg name="y" default="0.0"/>
+  <arg name="z" default="0.2"/>
+  <arg name="roll" default="0.0"/>
+  <arg name="pitch" default="0.0"/>
+  <arg name="yaw" default="0.0"/>
+
+  <group>
+    <push-ros-namespace namespace="$(var namespace)"/>
+
+    <!-- robot state publisher -->
+    <!-- You may build the urdf yourself using xacro or build it within the python launch file  -->
+    <include file="$(find-pkg-share fox_description)/launch/fox_robstatepub_xacro.launch.py">
+        <arg name="use_sim_time" value="true"/>
+    </include>
+    <!-- joint state publisher -->
+    <node pkg="joint_state_publisher" exec="joint_state_publisher">
+        <param name="use_sim_time" value="true"/> <!-- Important to ensure TFs are in sim_time -->
+        <param name="rate" value="30.0"/>
+        <param name="use_gui" value="false"/>
+    </node>
+
+    <!-- Spawn in gazebo using the robot_description topic published by robot state publisher -->
+    <!-- NOTE: Make sure gazebo knows the paths in the urdf file (package:// etc.) -->
+    <node pkg="gazebo_ros" exec="spawn_entity.py" args="-entity $(var robot_name) -robot_namespace $(var namespace) -topic robot_description -x $(var x) -y $(var y) -z $(var z) -R $(var roll) -P $(var pitch) -Y $(var yaw)"/>
+    <!-- Alternatively, we can spawn using the urdf file again -->
+    <!-- <arg name="urdf_path" default="$(find-pkg-share fox_description)/urdf/turtlebot3_waffle_base.urdf"/> -->
+    <!-- <node pkg="gazebo_ros" exec="spawn_entity.py" args="-entity $(var robot_name) -robot_namespace $(var namespace) -x $(var x) -y $(var y) -z $(var z) -R $(var roll) -P $(var pitch) -Y $(var yaw) -file $(var urdf_path)"/> -->
+
+    <!-- TF remapper to republish namespaced tfs to global /tf topic -->
+    <node pkg="fox_gazebo" exec="tf_remapper">
+        <param name="from_topic" value="tf"/> <!-- 'tf' is relative to this namespace -->
+        <param name="to_topic" value="/tf"/>  <!-- '/tf' is the global tf  -->        
+        <param name="tf_prefix" value="$(var namespace)/"/>
+    </node>
+
+  </group>
+  
+</launch>

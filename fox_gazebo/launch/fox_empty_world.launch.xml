@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+
+<launch>
+    
+    <arg name="x" default="0.0"/>
+    <arg name="y" default="0.0"/>
+    <arg name="z" default="0.2"/>
+    <arg name="roll" default="0.0"/>
+    <arg name="pitch" default="0.0"/>
+    <arg name="yaw" default="1.57"/>
+
+    <arg name="rviz" default="false"/>
+    <arg name="rviz_cfg_path" default="$(find-pkg-share fox_description)/rviz/fox.rviz"/>
+    
+    <!-- NOTE: sometimes you may need to run killall gzserver before launch. (gzserver rarely exits cleanly) -->
+    <executable cmd="killall gzserver" cwd="/home" output="screen"/>
+
+    <include file="$(find-pkg-share gazebo_ros)/launch/gazebo.launch.py">
+        <!-- Empty World -->
+        <!-- <arg name="world" value="$(var world_name)"/> -->
+        <arg name="gui" value="true"/>
+        <arg name="server" value="true"/>
+        <arg name="pause" value="false"/>
+    </include>
+    
+    <!-- robot state publisher -->
+    <include file="$(find-pkg-share fox_description)/launch/fox_robstatepub_xacro.launch.py">
+        <arg name="use_sim_time" value="true"/>
+    </include>
+
+    <!-- joint state publisher -->
+    <node pkg="joint_state_publisher" exec="joint_state_publisher" name="joint_state_publisher">
+        <param name="use_sim_time" value="true"/> <!-- Important to ensure TFs are in sim_time -->        
+        <param name="rate" value="30.0"/>
+        <param name="use_gui" value="false"/>
+    </node>
+
+    <!-- Spawn in gazebo using the robot_description topic published by robot state publisher -->
+    <!-- NOTE: Make sure gazebo knows the paths in the urdf file (package:// etc.) -->
+    <node pkg="gazebo_ros" exec="spawn_entity.py" name="spawn_fox" args="-entity turtlebot3_waffle -x $(var x) -y $(var y) -z $(var z) -R $(var roll) -P $(var pitch) -Y $(var yaw) -topic robot_description"/>
+    <!-- Alternatively, we can spawn using the urdf file again -->    
+    <!-- <arg name="urdf_path" default="$(find-pkg-share tb3_description)/urdf/turtlebot3_waffle_base.urdf"/> -->  
+    <!-- <node pkg="gazebo_ros" exec="spawn_entity.py" name="spawn_tb3" args="-entity turtlebot3_waffle -file $(var urdf_path)"/> -->
+
+    <!-- Rviz (Optional) -->
+    <node if="$(var rviz)" name="rviz2_tb3" pkg="rviz2" exec="rviz2" args="-d $(var rviz_cfg_path)" required="false" output="screen"/>
+
+</launch>

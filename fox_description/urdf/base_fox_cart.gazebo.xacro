@@ -3,14 +3,18 @@
 	<gazebo>
 		<plugin name= "base_fox_controller" filename="libgazebo_ros_diff_drive.so" >
             
-			<!-- <ros> -->
+            <ros>
                 <!-- Set namespace -->
                 <!-- <namespace>/demo</namespace> -->
 
                 <!-- Remap default topics -->
                 <!-- <argument>cmd_vel:=cmd_demo</argument>
                 <argument>odom:=odom_demo</argument> -->
-            <!-- </ros> -->
+
+                <!-- Remap tfs -->
+                <remapping>/tf:=tf</remapping>
+                <remapping>/tf_static:=tf_static</remapping>
+            </ros>
 
             <odometry_topic>odom</odometry_topic>
             <odometry_frame> odom </odometry_frame>
