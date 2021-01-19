@@ -190,7 +190,7 @@
     stddev of 0.01m will put 99.7% of samples within 0.03m of the true
     reading. -->
   <!-- RpLidar using GPU -->
-  <!--  <gazebo reference="laser">
+   <gazebo reference="laser">
     <sensor type="gpu_ray" name="head_rplidar_sensor">
       <pose>0 0 0.08 0 0 0</pose>
       <visualize>false</visualize>
@@ -222,9 +222,9 @@
     </sensor>
     <material>Gazebo/Grey</material>
   </gazebo>
--->
+
   <!-- RpLidar using CPU -->
-  <gazebo reference="laser">
+  <!-- <gazebo reference="laser">
     <sensor name="head_rplidar_sensor" type="ray">
       <pose>0 0 0.06 0 0 0</pose>
       <visualize>false</visualize>
@@ -253,9 +253,9 @@
         <topicName>scan</topicName>
         <frameName>laser</frameName>
       </plugin>
-    </sensor>
+    </sensor> -->
     <!-- <material>Gazebo/Grey</material> -->
-  </gazebo>
+  <!-- </gazebo> -->
   <!-- <xacro:include filename="$(find fox_description)/urdf/ar_tag.urdf.xacro"/> -->
   <!-- Base
 	<link name="base_footprint"/>

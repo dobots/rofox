@@ -23,6 +23,7 @@ def odomCallback(msg):
 
 # initialize subscriber and publisher
 odom_sub = rospy.Subscriber('odom', Odometry, odomCallback)
+# odom_sub = rospy.Subscriber('pose', PoseStamped, odomCallback)
 model_pub = rospy.Publisher('gazebo/set_model_state', ModelState, queue_size = 1)
 
 rate = rospy.Rate(20) # 20 Hz

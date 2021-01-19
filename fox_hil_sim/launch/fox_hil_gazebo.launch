@@ -5,7 +5,8 @@
   <!-- Arguments -->
   <!-- If changing init_pose, it also needs to be done on the physical robot side -->
   <arg name="init_pose" default="-x 0.0 -y 0.0 -z 0.2 -R 0.0 -P 0.0 -Y 0.0"/>
-  <arg name="world_name" default="$(find fox_gazebo)/worlds/house.world"/>
+  <!-- <arg name="world_name" default="$(find fox_gazebo)/worlds/house.world"/> -->
+  <arg name="world_name" default="$(find stationsplein_description)/worlds/stationsplein_with_actors.world"/>
   <arg name="empty_world" default="false"/>
   <arg name="rviz" default="false"/>
 

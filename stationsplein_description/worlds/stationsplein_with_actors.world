@@ -1,0 +1,340 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+  
+  
+    <!-- A global light source -->
+   <scene>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
+   </scene>
+    
+        <!-- A global light source -->
+    <light type="directional" name="sun">
+      <pose>0 0 1000 0 0 0</pose>
+      <cast_shadows>true</cast_shadows>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.5 0.5 0.5 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.4</direction>
+    </light>
+    
+    
+  
+        
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    
+        <model name='ground_plane'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>500 500</size>
+            </plane>
+          </geometry>
+          <surface>
+            <contact>
+              <collide_bitmask>65535</collide_bitmask>
+              <ode/>
+            </contact>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>500 500</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Grey</name>
+            </script>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+    </model>
+     <include>
+      <pose>-16 4 0 0 0 0</pose> 
+      <uri>model://roffa</uri>
+    </include>
+    
+    
+  <model name="bike_storage">
+    <static>true</static>
+    <pose>0 0 0 0 0 0</pose>
+    <link name="link"> 
+      <visual name="visual">
+    <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://../meshes/bike_storage.dae</uri>
+             <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <cast_shadows>true</cast_shadows>
+       <material>
+  		<ambient>0.3 0.3 0.3 1.0</ambient>
+  		<diffuse>0.3 0.3 0.3 1.0</diffuse>
+  		<specular>0.3 0.3 0.3 1.0</specular>
+  		<emissive>0.3 0.3 0.3 1.0</emissive>
+	</material>
+      </visual>
+  <collision name="collision">
+   <pose>0 0 0 0 0 0</pose>
+       <geometry>
+          <mesh>
+            <uri>model://../meshes/bike_storage.dae</uri>
+             <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  
+  
+  <model name="left_plantbox">
+    <static>true</static>
+    <pose>0 0 -0.6 0 0 0</pose>
+    <link name="link"> 
+      <visual name="visual">
+    <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://../meshes/plantleft.dae</uri>
+             <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <cast_shadows>true</cast_shadows>
+       <material>
+  		<ambient>0 0.2 0 1.0</ambient>
+  		<diffuse>0 0.2 0 1.0</diffuse>
+  		<specular>0 0.2 0 1.0</specular>
+  		<emissive>0 0.2 0 1.0</emissive>
+	</material>
+            
+  </visual>
+  <collision name="collision">
+   <pose>0 0 0 0 0 0</pose>
+       <geometry>
+          <mesh>
+            <uri>model://../meshes/plantleft.dae</uri>
+             <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+    
+  <model name="right_plantbox">
+    <static>true</static>
+    <pose>0 0 -0.2 0 0 0 0</pose>
+    <link name="link"> 
+      <visual name="visual">
+    <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://../meshes/plantright.dae</uri>
+             <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <cast_shadows>true</cast_shadows>
+        <material>
+  		<ambient>0 0.2 0 1.0</ambient>
+  		<diffuse>0 0.2 0 1.0</diffuse>
+  		<specular>0 0.2 0 1.0</specular>
+  		<emissive>0 0.2 0 1.0</emissive>
+	</material>
+      </visual>
+  <collision name="collision">
+   <pose>0 0 0 0 0 0</pose>
+       <geometry>
+          <mesh>
+            <uri>model://../meshes/plantright.dae</uri>
+             <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+    
+    
+  <model name="metro">
+    <static>true</static>
+    <pose>0 0 -1.5 0 0 0</pose>
+    <link name="link"> 
+      <visual name="visual">
+    <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://../meshes/metro.dae</uri>
+             <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <cast_shadows>true</cast_shadows>
+       <material>
+  		<ambient>0.2 0.2 0.2 1.0</ambient>
+  		<diffuse>0.2 0.2 0.2 1.0</diffuse>
+  		<specular>0.2 0.2 0.2 1.0</specular>
+  		<emissive>0.2 0.2 0.2 1.0</emissive>
+	</material>
+      </visual>
+  <collision name="collision">
+   <pose>0 0 0 0 0 0</pose>
+       <geometry>
+          <mesh>
+            <uri>model://../meshes/metro.dae</uri>
+             <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+  
+  
+  <model name="central_station">
+    <static>true</static>
+    <pose>40 -30 10 0 0 -1.57</pose>
+    <link name="link"> 
+      <visual name="visual">
+    <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <mesh>
+            <uri>model://../meshes/central_station_rotterdam.STL</uri>
+             <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+        <cast_shadows>true</cast_shadows>
+       <material>
+  		<ambient>0.3 0.3 0.3 1.0</ambient>
+  		<diffuse>0.3 0.3 0.3 1.0</diffuse>
+  		<specular>0.3 0.3 0.3 1.0</specular>
+  		<emissive>0.3 0.3 0.3 1.0</emissive>
+	</material>
+      </visual>
+  <collision name="collision">
+   <pose>0 0 0 0 0 0</pose>
+       <geometry>
+          <mesh>
+            <uri>model://../meshes/central_station_rotterdam.STL</uri>
+             <scale>1 1 1</scale>
+          </mesh>
+        </geometry>
+      </collision>
+    </link>
+  </model>
+
+ <!--Add actors -->
+    <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://actor1</uri>
+    </include>
+ 
+ 
+       <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://actor2</uri>
+    </include>
+ 
+ 
+        <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://actor3</uri>
+    </include>
+    
+            <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://actor4</uri>
+    </include>
+    
+            <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://actor5</uri>
+    </include>
+    
+                <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://actor6</uri>
+    </include>
+
+    <model name='unit_cylinder'>
+      <static>1</static>
+      <pose>0 0 0 0 0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <cylinder>
+              <radius>0.25</radius>
+              <length>1</length>
+            </cylinder>
+          </geometry>
+        </collision>
+        <!-- <visual name='visual'>
+          <geometry>
+            <cylinder>
+              <radius>0.25</radius>
+              <length>1</length>      
+            </cylinder>
+          </geometry>
+         <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Blue</name>
+            </script>
+         </material>
+        </visual> -->
+      </link>
+      </model>
+    
+                <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://actor7</uri>
+    </include>
+
+                <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://actor8</uri>
+    </include>
+    
+                    <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://actor9</uri>
+    </include>
+    
+                    <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://actor10</uri>
+    </include>
+ 
+    
+
+  </world>
+</sdf>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<sdf version='1.5'>
+     <actor name="actor7">
+        <pose>20 0 0 0 0 0</pose>
+         <skin>
+            <filename>walk.dae</filename>
+            <scale>1.0</scale>
+         </skin>
+         
+         <animation name="talking">
+            <filename>talk_b.dae</filename>
+            <scale>1.000000</scale>
+         </animation>
+                 
+      </actor>
+</sdf>

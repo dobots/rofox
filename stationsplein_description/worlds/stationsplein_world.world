@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<sdf version="1.4">
+  <world name="default">
+  
+  
+    <!-- A global light source -->
+   <scene>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
+   </scene>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+  
+  
+    <!--   <light name='sun' type='directional'>
+      <cast_shadows>1</cast_shadows>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.8 0.8 0.8 1</diffuse>
+      <specular>0.2 0.2 0.2 1</specular>
+      <attenuation>
+        <range>1000</range>
+        <constant>0.9</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <direction>-0.5 0.1 -0.9</direction>
+    </light>-->
+      
+      
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+    
+          <include>
+      <pose>0 0 0 0 0 0</pose> 
+      <uri>model://roffa</uri>
+    </include>
+     
+
+    
+    
+  
+          <model name='unit_box'>
+        <static>1</static>
+      <pose frame=''>-0.88171 2.49992 0.5 0 -0 0</pose>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name='visual'>
+          <geometry>
+            <box>
+              <size>1 1 1</size>
+            </box>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://media/materials/scripts/gazebo.material</uri>
+              <name>Gazebo/Red</name>
+            </script>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+    
+
+ 
+    
+
+  </world>
+</sdf>

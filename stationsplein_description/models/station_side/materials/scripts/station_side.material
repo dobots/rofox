@@ -1,0 +1,16 @@
+material station_side
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      ambient 1 1 1 1
+      texture_unit
+      {
+        texture side.png
+        scale 1 1
+      }
+    }
+  }
+}
