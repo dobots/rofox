@@ -14,9 +14,9 @@ source <workspace_path>/install/local_setup.bash
 
 ## Start the simulation with teleop
 
-To launch the maze world:
+To launch the arena world:
 ```
-ros2 launch fox_gazebo fox_maze.launch.xml
+ros2 launch fox_gazebo fox_arena.launch.xml
 ```
 To start the keyboard teleop:
 
@@ -32,7 +32,7 @@ rviz2
 ## Start SLAM (using cartographer)
 ```
 #1. Simulation
-ros2 launch fox_gazebo fox_maze.launch.xml
+ros2 launch fox_gazebo fox_arena.launch.xml
 
 #2. Teleoperation
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
@@ -47,7 +47,7 @@ rviz2
 ## Start AMCL
 ```
 #1. Simulation
-ros2 launch fox_gazebo fox_maze.launch.xml
+ros2 launch fox_gazebo fox_arena.launch.xml
 
 #2. Teleoperation
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
@@ -62,7 +62,7 @@ rviz2
 ## Start autonomous navigation (Nav2) with Cartographer
 ```
 #1. Simulation
-ros2 launch fox_gazebo fox_maze.launch.xml
+ros2 launch fox_gazebo fox_arena.launch.xml
 
 #2. Teleoperation
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
@@ -80,7 +80,7 @@ ros2 launch fox_navigation navigation2.launch.xml
 ## Start autonomous navigation (Nav2) with AMCL
 ```
 #1. Simulation
-ros2 launch fox_gazebo fox_maze.launch.xml
+ros2 launch fox_gazebo fox_arena.launch.xml
 
 #2. Teleoperation
 ros2 run teleop_twist_keyboard teleop_twist_keyboard
