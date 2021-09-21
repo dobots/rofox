@@ -1,4 +1,4 @@
-# Hardware-in-the-loop (HIL) simulation 
+# Hardware-in-the-loop simulation 
 
 This package contains  ros packages for running the HIL simulation example using the rover.
 It is designed for overiding the position of the simulated robot in Gazebo. It collects the position of the real robot (/pose topic for hFramework) and publishes this position on gazebo/set_model_state position. (The simulated robot in Gazebo must be configured to not listen to /cmd_vel topic. This is done by introducing /cmd_vel2 in /rosbot_description/src/rosbot_description/src/urdf/hil_rosbot.gazebo and .xacro)
