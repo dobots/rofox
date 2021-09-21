@@ -18,7 +18,7 @@ def odomCallback(msg):
   # fill gazebo position with the pose in the odom message
   #pose_gazebo.pose = msg.pose.pose
   pose_gazebo.pose = msg.pose
-  
+
   # publish the gazebo pose
   model_pub.publish(pose_gazebo)
 

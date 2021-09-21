@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <sdf version='1.5'>
      <actor name="actor6">
-     <pose>15 5 0 0 0 0</pose>
+     <pose>14 4 0 0 0 0</pose>
          <skin>
             <filename>walk.dae</filename>
             <scale>1.0</scale>
