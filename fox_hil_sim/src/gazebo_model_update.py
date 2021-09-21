@@ -2,7 +2,7 @@
 
 import rospy
 from geometry_msgs.msg import PoseStamped
-from nav_msgs.msg import Odometry
+#from nav_msgs.msg import Odometry
 from gazebo_msgs.msg import ModelState
 
 rospy.init_node('gazebo_model_update')
@@ -17,7 +17,7 @@ def odomCallback(msg):
 
   # fill gazebo position with the pose in the odom message
   #pose_gazebo.pose = msg.pose.pose
-  pose_gazebo.pose=msg.pose
+  pose_gazebo.pose = msg.pose
 
   # publish the gazebo pose
   model_pub.publish(pose_gazebo)
