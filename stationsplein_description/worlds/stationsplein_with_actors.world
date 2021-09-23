@@ -93,7 +93,7 @@
     
   <model name="bike_storage">
     <static>true</static>
-    <pose>0 0 0 0 0 0</pose>
+    <pose>0 0 -0.1 0 0 0</pose>
     <link name="link"> 
       <visual name="visual">
     <pose>0 0 0 0 0 0</pose>
@@ -126,7 +126,7 @@
   
   <model name="left_plantbox">
     <static>true</static>
-    <pose>0 0 -0.6 0 0 0</pose>
+    <pose>0 0 -0.7 0 0 0</pose>
     <link name="link"> 
       <visual name="visual">
     <pose>0 0 0 0 0 0</pose>
@@ -159,7 +159,7 @@
     
   <model name="right_plantbox">
     <static>true</static>
-    <pose>0 0 -0.2 0 0 0 0</pose>
+    <pose>0 0 -0.3 0 0 0 0</pose>
     <link name="link"> 
       <visual name="visual">
     <pose>0 0 0 0 0 0</pose>
@@ -192,7 +192,7 @@
     
   <model name="metro">
     <static>true</static>
-    <pose>0 0 -1.5 0 0 0</pose>
+    <pose>0 0 -1.6 0 0 0</pose>
     <link name="link"> 
       <visual name="visual">
     <pose>0 0 0 0 0 0</pose>
@@ -225,7 +225,7 @@
   
   <model name="central_station">
     <static>true</static>
-    <pose>40 -30 10 0 0 -1.57</pose>
+    <pose>40 -30 9.9 0 0 -1.57</pose>
     <link name="link"> 
       <visual name="visual">
     <pose>0 0 0 0 0 0</pose>
@@ -256,35 +256,36 @@
   </model>
 
  <!--Add actors -->
-    <include>
-      <pose>0 0 0 0 0 0</pose> 
+    <include> 
       <uri>model://actor1</uri>
+      <pose>0 0 -0.1 0 0 0</pose>
     </include>
  
  
-       <include>
-      <pose>0 0 0 0 0 0</pose> 
+     <include> 
       <uri>model://actor2</uri>
+      <pose>0 0 -0.1 0 0 0</pose>
     </include>
  
  
-        <include>
-      <pose>0 0 0 0 0 0</pose> 
+     <include>
       <uri>model://actor3</uri>
+      <pose>0 0 -0.1 0 0 0</pose> 
     </include>
     
-            <include>
-      <pose>0 0 0 0 0 0</pose> 
+     <include>
       <uri>model://actor4</uri>
+      <pose>0 0 -0.1 0 0 0</pose> 
     </include>
     
-            <include>
-      <pose>0 0 0 0 0 0</pose> 
+     <include>
       <uri>model://actor5</uri>
+      <pose>0 0 -0.1 0 0 0</pose> 
     </include>
     
      <include> 
       <uri>model://actor6</uri>
+      <pose>0 0 -0.1 0 0 0</pose> 
     </include>
 
    <!-- <model name='unit_cylinder'>
@@ -302,24 +303,24 @@
       </link>
       </model>-->
     
-                <include>
-      <pose>0 0 0 0 0 0</pose> 
+     <include>
       <uri>model://actor7</uri>
+      <pose>0 0 -0.1 0 0 0</pose> 
     </include>
 
-                <include>
-      <pose>0 0 0 0 0 0</pose> 
+     <include> 
       <uri>model://actor8</uri>
+      <pose>0 0 -0.1 0 0 0</pose>
     </include>
     
-                    <include>
-      <pose>0 0 0 0 0 0</pose> 
+    <include> 
       <uri>model://actor9</uri>
+      <pose>0 0 -0.1 0 0 0</pose>
     </include>
     
-                    <include>
-      <pose>0 0 0 0 0 0</pose> 
+    <include>
       <uri>model://actor10</uri>
+      <pose>0 0 -0.1 0 0 0</pose> 
     </include>
  
     
