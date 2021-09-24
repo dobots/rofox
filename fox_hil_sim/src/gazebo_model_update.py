@@ -2,7 +2,7 @@
 
 import rospy
 from geometry_msgs.msg import PoseStamped
-#from nav_msgs.msg import Odometry
+from nav_msgs.msg import Odometry
 from gazebo_msgs.msg import ModelState
 
 rospy.init_node('gazebo_model_update')

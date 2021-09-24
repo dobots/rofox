@@ -5,7 +5,7 @@
             <filename>moonwalk.dae</filename>
             <scale>1.0</scale>
          </skin>
-         <pose>0 0 0 0 0 0</pose>
+         <!--<pose>0 0 0 0 0 0</pose>-->
          <animation name="walking">
             <filename>walk.dae</filename>
             <scale>1.000000</scale>
@@ -19,39 +19,39 @@
             <trajectory id="0" type="walking">
                <waypoint>
                 <time>0</time>
-                <pose>15 -15 0.0 0 0 0</pose>
+                <pose>15 -15 -0.1 0 0 0</pose>
             </waypoint>
             <waypoint>
                 <time>2</time>
-                <pose>17 -15 0.0 0 0 0</pose>
+                <pose>17 -15 -0.1 0 0 0</pose>
             </waypoint>
             <waypoint>
                 <time>2.5</time>
-                <pose>17 -15 0.0 0 0 1.57</pose>
+                <pose>17 -15 -0.1 0 0 1.57</pose>
             </waypoint>
             <waypoint>
                 <time>4</time>
-                <pose>17 -13 0.0 0 0 1.57</pose>
+                <pose>17 -13 -0.1 0 0 1.57</pose>
             </waypoint>
             <waypoint>
                 <time>4.5</time>
-                <pose>17 -13 0.0 0 0 3.142</pose>
+                <pose>17 -13 -0.1 0 0 3.142</pose>
             </waypoint>
             <waypoint>
                 <time>6</time>
-                <pose>15 -13 0 0 0 3.142</pose>
+                <pose>15 -13 -0.1 0 0 3.142</pose>
             </waypoint>
             <waypoint>
                 <time>6.5</time>
-                <pose>15 -13 0 0 0 -1.57</pose>
+                <pose>15 -13 -0.1 0 0 -1.57</pose>
             </waypoint>
             <waypoint>
                 <time>8</time>
-                <pose>15 -15 0.0 0 0 -1.57</pose>
+                <pose>15 -15 -0.1 0 0 -1.57</pose>
             </waypoint>
             <waypoint>
                 <time>8.5</time>
-                <pose>15 -15 0.0 0 0 0</pose>
+                <pose>15 -15 -0.1 0 0 0</pose>
             </waypoint>
 
             </trajectory>

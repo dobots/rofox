@@ -18,23 +18,23 @@
             <trajectory id="0" type="walking">
           <waypoint>
             <time>0</time>
-            <pose>30 3 0 0 0 -3.14</pose>
+            <pose>30 3 -0.1 0 0 -3.14</pose>
           </waypoint>
           <waypoint>
             <time>30</time>
-            <pose>-10 3 0 0 0 -3.14</pose>
+            <pose>-10 3 -0.1 0 0 -3.14</pose>
           </waypoint>
           <waypoint>
             <time>35</time>
-            <pose>-10 3 0 0 0 0</pose>
+            <pose>-10 3 -0.1 0 0 0</pose>
           </waypoint>
           <waypoint>
             <time>65</time>
-            <pose>30 3 0 0 0 0</pose>
+            <pose>30 3 -0.1 0 0 0</pose>
           </waypoint>
           <waypoint>
             <time>70</time>
-            <pose>30 3 0 0 0 -3.14</pose>
+            <pose>30 3 -0.1 0 0 -3.14</pose>
           </waypoint>
 
             </trajectory>

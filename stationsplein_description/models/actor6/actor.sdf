@@ -1,15 +1,25 @@
 <?xml version="1.0"?>
 <sdf version='1.5'>
      <actor name="actor6">
-     <pose>14 4 0 0 0 0</pose>
+     
          <skin>
             <filename>walk.dae</filename>
             <scale>1.0</scale>
          </skin>
-         <animation name="walking">
+         <animation name="animation">
             <filename>stand.dae</filename>
             <scale>1.000000</scale>
             <interpolate_x>true</interpolate_x>
-         </animation>                   
+         </animation>
+      
+       <!--<script>
+         <trajectory id="0" type="animation">
+           <waypoint>
+             <time>1</time>
+             <pose> 3 5 -0.1 0 0 1.18</pose>
+           </waypoint>
+        </trajectory>
+      </script>-->
+   
       </actor>
 </sdf>

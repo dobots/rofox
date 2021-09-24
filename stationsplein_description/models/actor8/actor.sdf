@@ -5,7 +5,6 @@
             <filename>walk.dae</filename>
             <scale>1.0</scale>
          </skin>
-         <pose>0 0 0 0 0 0</pose>
          <animation name="walking">
             <filename>walk.dae</filename>
             <scale>1.000000</scale>
@@ -18,23 +17,23 @@
   <trajectory id="0" type="walking">
           <waypoint>
             <time>0</time>
-            <pose>4 -20 0 0 0 1.57</pose>
+            <pose>4 -20 -0.1 0 0 1.57</pose>
           </waypoint>
           <waypoint>
             <time>60</time>
-            <pose>4 20 0 0 0 1.57</pose>
+            <pose>4 20 -0.1 0 0 1.57</pose>
           </waypoint>
           <waypoint>
             <time>65</time>
-            <pose>4 20 0 0 0 -1.57</pose>
+            <pose>4 20 -0.1 0 0 -1.57</pose>
           </waypoint>
           <waypoint>
             <time>125</time>
-            <pose>4 -20 0 0 0 -1.57</pose>
+            <pose>4 -20 -0.1 0 0 -1.57</pose>
           </waypoint>
           <waypoint>
             <time>130</time>
-            <pose>4 -20 0 0 0 1.57</pose>
+            <pose>4 -20 -0.1 0 0 1.57</pose>
           </waypoint>
         </trajectory>
          </script>
