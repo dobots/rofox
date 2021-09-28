@@ -86,10 +86,17 @@ roslaunch fox_bringup fox.launch
 
 **It is important to start first the simulation and then the rosserial bridge within the fox.launch! Otherwise, RViz will complain about old laserscan data and it will not be shown in RViz.**
 
-5. Start teleop on the laptop:
+5. Start teleop on the laptop or start the joystick:
 ```
 rosrun teleop_twist_keyboard teleop_twist_keyboard.py 
 ```
+or
+```
+rosrun joy joy_node
+rosrun teleop_twist_joy leop_node 
+```
+
+
 ## Troubleshooting
 
 ### Only one wheel moves
@@ -100,3 +107,15 @@ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
 
 ### The robot shakes in the simulation
 - try lower the ground plane in Gazebo, it might be conflicting with the z axis of the robot. The position of the real robot is z=0, while the simulated robots position is z=0.1, when it is on the ground. Now the simulated robot is spawned at the position of the real robot so it is important to lower the simulated ground.
+
+##The joystick is not connected through bluetooth
+-try to connect the joystick to the laptop instead of the robot
+-try to use the built-in bluetooth instead of an external bluetooth dongle
+-turn on the bluetooth receiver of your laptop and turn on the joystick
+-in the settings of Ubuntu select the joystick device and connect
+-useful commands for debugging:
+	-to get the list of input device use: `ls /dev/input`
+	-test the input of the joystick: `sudo jstest /dev/input/jsX`
+	-make sure that it is accesible for the ROS joy node: `ls -l /dev/input/jsX` 
+	- if not modify the read and write rights: `sudo chmod a+rw /dev/input/jsX`
+-if the joystick is not on js0, you need to modify the parameter of the joy_node: `rosparam set joy_node/dev "/dev/input/jsX". Then you can start the joy_node and the teleop.
